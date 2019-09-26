@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Forms</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>This is a legend</legend>
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" placeholder="Name" />
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="Email" />
+
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="phone" placeholder="Phone" />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Password"
+      />
+
+      <label for="file">Choose a file..</label>
+      <input id="file" name="file" type="file" placeholder="Choose a file.." />
+
+      <label for="gender">Gender</label>
+      <select>
+        <option>Choose gender..</option>
+        <option value="f">Female</option>
+        <option value="m">Male</option>
+      </select>
+
+      <label>
+        <input name="terms" id="terms" type="checkbox" /> I agree to terms.
+      </label>
+
+      <label> <input name="rating" type="radio" value="a" /> Adult </label>
+      <label> <input name="rating" type="radio" value="c" /> Child </label>
+    </fieldset>
+
+    <button type="submit">Submit</button>
+  </body>
+</html>
