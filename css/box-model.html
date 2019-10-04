@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>CSS box model</title>
+    <style>
+      .inline {
+        display: inline;
+        background-color: yellow;
+      }
+
+      .block {
+        box-sizing: border-box;
+        display: block;
+        width: 300px;
+        height: 200px;
+        margin: 30px 30px 100px 30px;
+        padding: 30px;
+        background-color: white;
+        border: 10px solid #3377ee;
+        border-width: 0 0 5px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="block">Text 1</span>
+    <span class="block">Text 2</span>
+  </body>
+</html>
