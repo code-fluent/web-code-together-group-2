@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Flexbox</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: teal;
+        margin: 10px;
+        color: white;
+        font-size: 24px;
+      }
+
+      .box:nth-child(1) {
+        background-color: tomato;
+        flex: 1;
+      }
+
+      .box:nth-child(2) {
+        order: 100;
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <p class="box">4</p>
+    </div>
+  </body>
+</html>
