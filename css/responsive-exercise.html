@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Photo album</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 1080px;
+        margin: 0 auto;
+        background-color: lightblue;
+      }
+
+      .box {
+        width: 200px;
+        height: 160px;
+        margin: 10px 0 10px 0;
+        background-color: violet;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .container {
+          width: 709px;
+        }
+
+        .box {
+          width: 223px;
+          height: 178px;
+        }
+      }
+
+      @media only screen and (max-width: 375px) {
+        .container {
+          width: 100%;
+        }
+
+        .box {
+          width: 100vw;
+          height: 78vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

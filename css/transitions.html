@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Transitions</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        transition: background-color 1s linear, transform 2s ease-out;
+      }
+
+      .box:hover {
+        background-color: lightcoral;
+        transform: translate(500px, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

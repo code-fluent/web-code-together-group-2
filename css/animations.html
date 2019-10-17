@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Animations</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        animation: example 2s linear 2s backwards;
+      }
+
+      @keyframes example {
+        from {
+          background-color: red;
+        }
+        to {
+          background-color: yellow;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>
