@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Lotto numbers</title>
+    <script>
+      function generateNumber(count, limit) {
+        if (count < limit) {
+          console.log(Math.round(Math.random() * 49));
+          generateNumber(count + 1, limit);
+        }
+      }
+
+      generateNumber(0, 100);
+    </script>
+  </head>
+</html>
