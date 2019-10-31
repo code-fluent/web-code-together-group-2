@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Greatest common divider</title>
+    <script>
+      var divider = 1;
+
+      function commonDivider(a, b) {
+        for (var i = 1; i <= a; i++) {
+          if (a % i === 0 && b % i === 0) {
+            divider = i;
+          }
+        }
+        return divider;
+      }
+      console.log(commonDivider(8976, 3456));
+    </script>
+  </head>
+</html>
