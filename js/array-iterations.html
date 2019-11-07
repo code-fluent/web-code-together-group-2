@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Array iterations</title>
+    <script>
+      var array = [1, 2, 3, 4, 5];
+
+      for (var i = 0; i < array.length; i++) {
+        console.log(array[i]);
+      }
+
+      array.forEach(number => {
+        console.log(number);
+      });
+
+      var evenNumbers = array.filter(number => {
+        if (number % 2 === 0) return true;
+        return false;
+      });
+
+      console.log(evenNumbers);
+
+      var largeNumbers = array.filter(number => number > 3);
+
+      console.log(largeNumbers);
+
+      var doubledNumbers = array.map(number => number * 2);
+      console.log(doubledNumbers);
+
+      var sum = array.reduce((accumulator, number) => {
+        accumulator = accumulator + number;
+        return accumulator;
+      }, 0);
+
+      console.log(sum);
+
+      var numbers = [1, 5, 3, 10, 6, 8];
+
+      var sortedNumbers = numbers.sort((a, b) => {
+        if (a > b) return -1;
+        if (a < b) return 1;
+        if (a === b) return 0;
+      });
+
+      console.log(sortedNumbers);
+    </script>
+  </head>
+</html>
