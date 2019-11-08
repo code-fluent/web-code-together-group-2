@@ -1,0 +1,34 @@
+<html>
+  <head>
+    Objects
+  </head>
+  <script>
+    var car = {
+      type: "BMW",
+      model: "X6",
+      color: "Yellow",
+      totalDistance: 0,
+      engineStarted: false,
+      startEngine: function() {
+        this.engineStarted = true;
+        console.log("Engine started.");
+      },
+      stopEngine: function() {
+        this.engineStarted = false;
+        console.log("Engine stopped.");
+      },
+      run: function(km) {
+        this.totalDistance = this.totalDistance + km;
+        console.log("Run in total", this.totalDistance);
+      }
+    };
+
+    console.log(car.type);
+
+    car.startEngine();
+    car.run(5);
+    car.run(100);
+    car.run(80);
+    car.stopEngine();
+  </script>
+</html>

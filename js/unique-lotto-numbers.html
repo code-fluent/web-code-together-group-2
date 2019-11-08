@@ -1,0 +1,17 @@
+<html>
+  <head>
+    Lott numbers
+  </head>
+  <script>
+    var lottoNumbers = [];
+
+    while (lottoNumbers.length < 6) {
+      var number = Math.round(Math.random() * 49);
+      if (!lottoNumbers.includes(number)) {
+        lottoNumbers.push(number);
+      }
+    }
+
+    console.log(lottoNumbers);
+  </script>
+</html>

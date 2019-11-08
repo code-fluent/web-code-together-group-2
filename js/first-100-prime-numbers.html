@@ -4,10 +4,13 @@
     <script>
       function isPrimeNumber(number) {
         for (var i = 2; i <= number - 1; i++) {
+          let a = 1;
           if (number % i === 0) {
             return false;
           }
         }
+
+        console.log(a);
 
         return true;
       }
