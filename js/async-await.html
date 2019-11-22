@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Async/Await</title>
+    <script>
+      function double(number) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (Math.random() > 0.9) {
+              reject("Something went wrong..");
+            } else {
+              resolve(number * 2);
+            }
+          }, 1000);
+        });
+      }
+
+      //   double(5)
+      //     .then(result => {
+      //       return double(result);
+      //     })
+      //     .then(result => {
+      //       return double(result);
+      //     })
+      //     .then(result => console.log(result))
+      //     .catch(error => {
+      //       console.error(error);
+      //     });
+
+      async function calculate() {
+        const result1 = await double(5);
+        const result2 = await double(result1);
+        const result3 = await double(result2);
+        console.log(result3);
+      }
+
+      calculate().catch(error => {
+        console.log(error);
+      });
+    </script>
+  </head>
+</html>
