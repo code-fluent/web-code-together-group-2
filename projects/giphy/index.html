@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <title>Giphy search</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .input {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 8px 16px;
+        font-size: 18px;
+        outline: none;
+      }
+
+      .input:focus {
+        border-color: #6600ee;
+      }
+
+      .container {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .image {
+        width: calc((100% - 80px) / 4);
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="search" class="input" placeholder="Search.." />
+
+    <div class="container" id="container">
+      <img
+        class="image"
+        src="https://media2.giphy.com/media/f4HpCDvF84oh2/giphy.webp?cid=790b76118d72c165977b6c5483a114df3bf52da375a12dd1&rid=giphy.webp"
+      />
+
+      <img
+        class="image"
+        src="https://media2.giphy.com/media/f4HpCDvF84oh2/giphy.webp?cid=790b76118d72c165977b6c5483a114df3bf52da375a12dd1&rid=giphy.webp"
+      />
+
+      <img
+        class="image"
+        src="https://media2.giphy.com/media/f4HpCDvF84oh2/giphy.webp?cid=790b76118d72c165977b6c5483a114df3bf52da375a12dd1&rid=giphy.webp"
+      />
+
+      <img
+        class="image"
+        src="https://media2.giphy.com/media/f4HpCDvF84oh2/giphy.webp?cid=790b76118d72c165977b6c5483a114df3bf52da375a12dd1&rid=giphy.webp"
+      />
+
+      <img
+        class="image"
+        src="https://media2.giphy.com/media/f4HpCDvF84oh2/giphy.webp?cid=790b76118d72c165977b6c5483a114df3bf52da375a12dd1&rid=giphy.webp"
+      />
+
+      <img
+        class="image"
+        src="https://media2.giphy.com/media/f4HpCDvF84oh2/giphy.webp?cid=790b76118d72c165977b6c5483a114df3bf52da375a12dd1&rid=giphy.webp"
+      />
+    </div>
+
+    <script>
+      const inputElement = document.getElementById("search");
+      const containerElement = document.getElementById("container");
+
+      inputElement.addEventListener("keypress", event => {
+        if (event.code === "Enter") {
+          const text = inputElement.value;
+          const promise = fetch(
+            `https://18z9lalk4f.execute-api.us-east-1.amazonaws.com/dev/giphy/search?search=${text}`
+          );
+
+          promise
+            .then(response => {
+              return response.json();
+            })
+            .then(urls => {
+              containerElement.innerHTML = "";
+              urls.forEach(url => {
+                const image = document.createElement("IMG");
+                image.setAttribute("class", "image");
+                image.setAttribute("src", url);
+                container.appendChild(image);
+              });
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        }
+      });
+    </script>
+  </body>
+</html>

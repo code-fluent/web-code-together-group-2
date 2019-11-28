@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Classes</title>
+  </head>
+  <body>
+    <script>
+      class Car {
+        constructor(type, model, color) {
+          this.type = type;
+          this.model = model;
+          this.color = color;
+          this.totalDistance = 0;
+          this.engineStarted = false;
+        }
+
+        startEngine() {
+          this.engineStarted = true;
+          console.log("Engine started..");
+        }
+
+        stopEngine() {
+          this.engineStarted = false;
+          console.log("Engine stopped..");
+        }
+
+        run(km) {
+          this.totalDistance = this.totalDistance + km;
+          console.log(`Run in total ${this.totalDistance}.`);
+        }
+      }
+
+      class Truck extends Car {
+        load() {
+          console.log("Loading..");
+        }
+
+        unload() {
+          console.log("Unloading..");
+        }
+      }
+
+      const bmw = new Car("BMW", "X6", "yellow");
+      const audi = new Car("Audi", "Q7", "red");
+      const volvo = new Truck("Volvo", "FH16", "black");
+
+      bmw.startEngine();
+      bmw.run(100);
+      bmw.run(150);
+      bmw.stopEngine();
+
+      volvo.startEngine();
+      volvo.load();
+      volvo.run(100);
+      volvo.unload();
+      volvo.stopEngine();
+    </script>
+  </body>
+</html>
