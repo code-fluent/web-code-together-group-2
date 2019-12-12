@@ -96,25 +96,7 @@
           placeholder="Add a new todo"
         />
 
-        <div id="todos" class="todos">
-          <label class="todo">
-            <input type="checkbox" class="checkbox" />
-            <div class="custom-checkbox"></div>
-            Buy eggs
-          </label>
-
-          <label class="todo">
-            <input type="checkbox" class="checkbox" />
-            <div class="custom-checkbox"></div>
-            Buy milk
-          </label>
-
-          <label class="todo">
-            <input type="checkbox" class="checkbox" />
-            <div class="custom-checkbox"></div>
-            Buy meat
-          </label>
-        </div>
+        <div id="todos" class="todos"></div>
 
         <div class="filters">
           <span class="filters-text">Show:</span>
@@ -128,22 +110,53 @@
     <script>
       const inputElement = document.getElementById("input");
       const todosElement = document.getElementById("todos");
+      const todos = [
+        {
+          id: 1,
+          isCompleted: false,
+          title: "Buy eggs"
+        },
+        {
+          id: 2,
+          isCompleted: false,
+          title: "Buy milk"
+        }
+      ];
+
+      const renderTodo = todo => {
+        const labelElement = document.createElement("label");
+        labelElement.setAttribute("class", "todo");
+        labelElement.innerHTML = `
+          <input type="checkbox" class="checkbox" />
+          <div class="custom-checkbox"></div>
+          ${todo.title}
+          `;
+
+        return labelElement;
+      };
+
+      const renderTodos = todos => {
+        todosElement.innerHTML = "";
+        todos.forEach(todo => {
+          const todoElement = renderTodo(todo);
+          todosElement.appendChild(todoElement);
+        });
+      };
 
       inputElement.addEventListener("keypress", event => {
         if (event.code === "Enter") {
-          const text = inputElement.value;
-          const labelElement = document.createElement("label");
-          labelElement.setAttribute("class", "todo");
-          labelElement.innerHTML = `
-          <input type="checkbox" class="checkbox" />
-          <div class="custom-checkbox"></div>
-          ${text}
-          `;
+          todos.push({
+            isCompleted: false,
+            title: inputElement.value
+          });
 
-          todosElement.appendChild(labelElement);
+          renderTodos(todos);
+
           inputElement.value = "";
         }
       });
+
+      renderTodos(todos);
     </script>
   </body>
 </html>
