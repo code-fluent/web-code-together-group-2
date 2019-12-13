@@ -110,27 +110,32 @@
     <script>
       const inputElement = document.getElementById("input");
       const todosElement = document.getElementById("todos");
-      const todos = [
-        {
-          id: 1,
-          isCompleted: false,
-          title: "Buy eggs"
-        },
-        {
-          id: 2,
-          isCompleted: false,
-          title: "Buy milk"
-        }
-      ];
+
+      const saveTodosToLocalStorage = todos => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+      };
+
+      const getTodosFromLocalStorage = () => {
+        return JSON.parse(localStorage.getItem("todos")) || [];
+      };
+
+      const todos = getTodosFromLocalStorage();
 
       const renderTodo = todo => {
         const labelElement = document.createElement("label");
         labelElement.setAttribute("class", "todo");
         labelElement.innerHTML = `
-          <input type="checkbox" class="checkbox" />
+          <input type="checkbox" class="checkbox" ${
+            todo.isCompleted ? "checked" : ""
+          } />
           <div class="custom-checkbox"></div>
           ${todo.title}
           `;
+
+        labelElement.addEventListener("mousedown", event => {
+          todo.isCompleted = !todo.isCompleted;
+          saveTodosToLocalStorage(todos);
+        });
 
         return labelElement;
       };
@@ -146,11 +151,13 @@
       inputElement.addEventListener("keypress", event => {
         if (event.code === "Enter") {
           todos.push({
+            id: Date.now(),
             isCompleted: false,
             title: inputElement.value
           });
 
           renderTodos(todos);
+          saveTodosToLocalStorage(todos);
 
           inputElement.value = "";
         }
