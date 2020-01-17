@@ -1,0 +1,16 @@
+{
+  "name": "node",
+  "version": "0.0.1",
+  "description": "",
+  "main": "add-numbers.js",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "wifi-password": "^3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tamas Pap",
+  "license": "ISC"
+}
