@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 const knex = require("knex")({
@@ -12,6 +13,7 @@ const knex = require("knex")({
 });
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/todos", async function(req, res) {
   const todos = await knex.select("id", "name", "isCompleted").from("todos");
