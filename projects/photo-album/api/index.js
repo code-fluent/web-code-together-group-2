@@ -16,6 +16,7 @@ const knex = require("knex")({
 app.use(express.json());
 app.use(fileUpload());
 app.use(cors());
+app.use("/static", express.static("photos"));
 
 app.get("/photos", async function(req, res) {
   const photos = await knex.select("id", "name").from("photos");
@@ -30,6 +31,11 @@ app.post("/upload", async function(req, res) {
   });
 
   res.json();
+});
+
+app.get("/photos/:name", async function(req, res) {
+  const photos = await knex.select("id", "name").from("photos");
+  res.json(photos);
 });
 
 app.listen(8080);
