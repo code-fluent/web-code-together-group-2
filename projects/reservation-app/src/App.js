@@ -37,11 +37,16 @@ class App extends Component {
   };
 
   createReservation = (line, day, hour) => {
-    return axios.post("http://localhost:8080/reservations", {
-      line: line,
-      day: day,
-      hour: hour
-    });
+    return axios.post(
+      `http://localhost:8080/reservations?date=${moment().format(
+        "YYYY-MM-DD"
+      )}`,
+      {
+        line: line,
+        day: day,
+        hour: hour
+      }
+    );
   };
 
   componentDidMount() {
@@ -56,7 +61,7 @@ class App extends Component {
   };
 
   onButtonClick = async (line, hour) => {
-    await this.createReservation(line, moment().format("YYYY-MM-DD", hour));
+    await this.createReservation(line, moment().format("YYYY-MM-DD"), hour);
     this.loadReservations();
   };
 
